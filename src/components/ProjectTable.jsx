@@ -107,7 +107,7 @@ const ProjectTable = () => {
         </TableHeader>
         <TableBody>
           {data.map((item) => (
-            <TableRow className="p-4">
+            <TableRow className="p-4" key={item.rank}>
               <TableCell className="font-medium text-2xl text-gray-500">
                 {' '}
                 #<span className="text-white"> {item.rank}</span>

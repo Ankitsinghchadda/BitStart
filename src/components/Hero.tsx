@@ -2,6 +2,9 @@
 import React from 'react';
 import { Rowdies } from 'next/font/google';
 import { motion } from 'framer-motion';
+import DrawOutlineButton from "../components/Buttons/DrawOutlineButton"
+import Link from 'next/link';
+
 
 const rowdies = Rowdies({
   subsets: ['latin'],
@@ -55,6 +58,13 @@ const text = 'Invest in vetted projects.';
 
 const Hero = () => {
   const heading = Array.from(text);
+
+  const scrollToSection = (id : string) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   return (
     <header className="relative flex items-center justify-center flex-col mt-4  h-[calc(100vh-80px)] max-h-[700px] font-wide font-bold leading-none">
       <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:80px_80px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
@@ -83,6 +93,10 @@ const Hero = () => {
       >
         Start your next investment on vetted project with BitStart
       </motion.p>
+
+      <div className="place-content-center mt-16 text-2xl font-semibold border border-white hover:border-none">
+      <DrawOutlineButton onClick={()=>scrollToSection('recentlyLaunchedProject')}>Explore Projects</DrawOutlineButton>
+    </div>
     </header>
   );
 };

@@ -4,6 +4,7 @@ import { Button } from './ui/button';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { useState } from 'react';
+import ConnectButton from './Buttons/ConnectButton';
 
 const Navbar = () => {
   const { scrollY } = useScroll();
@@ -80,14 +81,15 @@ const Navbar = () => {
         </div>
       </div>
       <div className="flex items-center gap-4">
-        <Button variant="outline">Launch your project</Button>
+        <Button variant="outline">Start Investing</Button>
         <div className="flex items-center gap-1.5">
-          <Button variant="default">Connect</Button>
+          <ConnectButton/>
           <Button variant="default" className="bg-orange-500">
             0 Points
           </Button>
         </div>
       </div>
+   
     </motion.nav>
   );
 };

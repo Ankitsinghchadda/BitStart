@@ -4,6 +4,7 @@ import LongCard from './Cards/LongCard';
 import { Button } from './ui/button';
 import { SlArrowRight } from 'react-icons/sl';
 import { useScroll, motion, useTransform } from 'framer-motion';
+import { recentProjectData } from './DummyData';
 
 const RecentLaunch = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -15,6 +16,7 @@ const RecentLaunch = () => {
   const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
   const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.5, 1]);
   return (
+    <section className='w-[90%]' id="recentlyLaunchedProject">
     <div className="container flex flex-col mt-20">
       <p className="md:text-2xl font-mono font-medium tracking-wide text-[hsl(76,87%,67%)] mx-6">
         Recently launched project using BitStart
@@ -25,11 +27,9 @@ const RecentLaunch = () => {
         style={{ scale: scaleProgress, opacity: opacityProgress }}
       >
         <div className="relative z-10 flex flex-col gap-1">
-          <LongCard />
-          <LongCard />
-          <LongCard />
-          <LongCard />
-          <LongCard />
+          {recentProjectData.map((project, index) => (
+            <LongCard key={index} project={project} />
+          ))}
         </div>
         <div className="inset-4 mx-4 h-3 rounded-b-[16px] bg-slate-800 opacity-[0.5]"></div>
         <div className="inset-4 mx-8 h-2 rounded-b-[16px] bg-slate-800 opacity-[0.3]"></div>
@@ -41,6 +41,7 @@ const RecentLaunch = () => {
         </Button>
       </div>
     </div>
+    </section>
   );
 };
 

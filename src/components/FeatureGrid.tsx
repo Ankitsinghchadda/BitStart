@@ -68,14 +68,14 @@ export const FeatureGrid = () => {
             onClick={handlePrevSlide}
             disabled={currentIndex === 0}
           >
-            <FaChevronLeft size={24} />
+            <FaChevronLeft size={18} />
           </button>
           <button
             className="h-fit bg-slate-800 p-4 text-2xl text-white transition-color hover:bg-slate-700"
             onClick={handleNextSlide}
             disabled={currentIndex === cardData.length - 1}
           >
-            <FaChevronRight size={24} />
+            <FaChevronRight size={18} />
           </button>
         </div>
       </div>
